@@ -9,10 +9,7 @@
 
 .header h1 {
   font-family: 'Montserrat', sans-serif;
-}
-
-.highlight {
-  background: linear-gradient(90deg, #f9572a, #ff8a05);
+    background: linear-gradient(90deg, #f9572a, #ff8a05);
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -24,11 +21,9 @@
   margin: 3rem auto;
   color: white;
 }
-
 .form {
   max-width: 50rem;
 }
-
 .form label {
   display: block;
   margin-bottom: 0.5rem;
@@ -39,8 +34,7 @@
   font-weight: bold;
 }
 
-.form input,
-.form textarea {
+.form input {
   display: block;
   width: 100%;
   padding: 0.5rem 1rem;
@@ -51,21 +45,6 @@
   font-family: 'Montserrat', sans-serif;
   color: #ddd6cb;
 }
-
-.form input:focus,
-.form textarea:focus {
-  outline-color: #f99f2a;
-  background-color: #1f252d;
-}
-
-/* .row {
-  display: flex;
-  gap: 1rem;
-}
-
-.row p {
-  width: 100%;
-} */
 
 .actions {
   text-align: right;
@@ -95,4 +74,11 @@
   background: #ccc;
   color: #979797;
   cursor: not-allowed;
+}
+
+.error, 
+.error li{
+      font-size: 1rem;
+  font-weight: 300;
+  color: red;
 }

@@ -3,6 +3,8 @@ import Link from 'next/link'
 import classes from './page.module.css'
 import MealsGrid from '@/components/meals/meals-grid'
 import { getMeals } from '@/lib/meals'
+import { createSupabaseServerClient } from '@/lib/supabaseServer';
+
 
 export const metadata = {
   title: 'All Meals',
@@ -10,8 +12,16 @@ export const metadata = {
 };
 
 async function Meals(){
+      const supabase = await createSupabaseServerClient();
+  const {
+    data: { session },
+  } = await supabase.auth.getSession();
+
+const currentUserEmail = session?.user?.email;
+
+
     const meals = await getMeals();
-    return <MealsGrid meals={meals}/>
+    return <MealsGrid meals={meals} currentUserEmail={currentUserEmail}/>
 }
 
 export default function MealsPage() { 

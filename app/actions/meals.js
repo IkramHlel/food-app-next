@@ -1,8 +1,10 @@
 'use server'
 
 import { redirect } from "next/navigation";
-import { saveMeal } from "./meals"
+import { saveMeal } from "@/lib/meals"
 import { revalidatePath } from 'next/cache';
+import { createSupabaseServerClient } from '@/lib/supabaseServer'
+
 
 
 function isInvalidText(text){
@@ -10,20 +12,27 @@ function isInvalidText(text){
 }
 
 export async function shareMeal(prevState, formData) {
+      const supabase = await createSupabaseServerClient();
+        const {
+    data: { session },
+    error: sessionError
+  } = await supabase.auth.getSession();
+
+  if (!session || sessionError) throw new Error('User not logged in');
+
+  const user = session.user;
+
     const meal = {
         title: formData.get('title'),
         summary:formData.get('summary'),
         instructions: formData.get('instructions'),
         image: formData.get("image"),
-        creator: formData.get("name"),
-        creator_email: formData.get("email")
+        creator: user.user_metadata?.name || 'Anonymous',
+        creator_email:  user.email,
     };
     if(isInvalidText(meal.title) ||
     isInvalidText(meal.summary) ||
     isInvalidText(meal.instructions) ||
-    isInvalidText(meal.creator) ||
-    isInvalidText(meal.creator_email) ||
-    !meal.creator_email.includes('@') ||
     !meal.image || meal.image.size === 0){
         return {
             message: 'Invalid input.',
