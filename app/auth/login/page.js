@@ -35,7 +35,7 @@ export default function Login () {
            </button>
       </p>
       <div className={classes.signup}>
-        <p>Don't have account?</p>
+        <p>Don&apos;t have an account?</p>
         <Link className={classes.link} href={'/auth/signup'}>Sign up</Link>
       </div>
       
