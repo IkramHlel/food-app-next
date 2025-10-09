@@ -17,8 +17,7 @@ export async function generateMetadata({params}) {
 }
 
 export default async function SelectedMealPage({params}) { 
-      const { mealSlug } = await params;
-
+    const { mealSlug } = await params;
     const meal = await getMeal(mealSlug)
 
     if(!meal){

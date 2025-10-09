@@ -33,8 +33,8 @@ export async function updateSession(request) {
 
   if (
     !user &&
-    request.nextUrl.pathname.startsWith('/meals') ||
-    request.nextUrl.pathname.startsWith('/community') ||
+    request.nextUrl.pathname.startsWith('/meals') &&
+    request.nextUrl.pathname.startsWith('/community') &&
     request.nextUrl.pathname.startsWith('/error')
   ) {
     const url = request.nextUrl.clone()
