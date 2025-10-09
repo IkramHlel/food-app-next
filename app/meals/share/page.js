@@ -29,25 +29,29 @@ export default function ShareMealPage() {
               <input type="email" id="email" name="email" required />
             </p>
           </div> */}
-          <p>
+          <div>
             <label htmlFor="title">Title</label>
-            <input type="text" id="title" name="title" required />
-          </p>
-          <p>
+            <input type="text" id="title" name="title" defaultValue={state?.values?.title || ''}/>
+            {state?.errors?.title && <p className={classes.error}>{state.errors.title}</p>}
+
+          </div>
+          <div>
             <label htmlFor="summary">Short Summary</label>
-            <input type="text" id="summary" name="summary" required />
-          </p>
-          <p>
+            <input type="text" id="summary" name="summary" defaultValue={state?.values?.summary || ''}/>
+            {state?.errors?.summary && <p className={classes.error}>{state.errors.summary}</p>}
+          </div>
+          <div>
             <label htmlFor="instructions">Instructions</label>
             <textarea
               id="instructions"
               name="instructions"
               rows="10"
-              required
+              defaultValue={state?.values?.instructions || ''}
             ></textarea>
-          </p>
+            {state?.errors?.instructions && <p className={classes.error}>{state.errors.instructions}</p>}
+          </div>
           <ImagePicker label="Your image" name="image"/>
-          {state.message && <p>{state.message}</p>}
+          {state?.errors?.image && <p className={classes.error}>{state.errors.image}</p>}
           <p className={classes.actions}>
             <MealsFormSubmit/>
           </p>

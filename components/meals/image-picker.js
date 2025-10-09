@@ -32,11 +32,11 @@ export default function ImagePicker({label, name}){
             <input 
                 ref={imageInput} 
                 className={classes.input} 
-                type="file" id={name} 
+                type="file" 
+                id={name} 
                 accept="image/png, image/jpeg" 
                 name={name} 
                 onChange={handleImageChange}
-                required
             />
             <button className={classes.button} type="button" onClick={handlePickClick}>Pick an Image</button>
         </div>

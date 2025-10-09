@@ -1,6 +1,6 @@
 'use server'
 
-import { SignupFormSchema, LoginFormSchema } from '@/lib/definitions'
+import { SignupFormSchema, LoginFormSchema } from '@/utils/validation/auth'
 import {login, signup} from '@/lib/auth.js'
 import { revalidatePath } from 'next/cache';
 import { notFound, redirect } from "next/navigation";

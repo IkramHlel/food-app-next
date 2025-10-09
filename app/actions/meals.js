@@ -4,12 +4,7 @@ import { redirect } from "next/navigation";
 import { saveMeal } from "@/lib/meals"
 import { revalidatePath } from 'next/cache';
 import { createClient } from '@/utils/supabase/server'
-
-
-
-function isInvalidText(text){
-    return !text || text.trim() === ""
-}
+import { MealSchema } from '@/utils/validation/meal'
 
 export async function shareMeal(prevState, formData) {
   const supabase = await createClient()
@@ -26,14 +21,13 @@ export async function shareMeal(prevState, formData) {
         creator: user.user_metadata?.name || 'Anonymous',
         creator_email:  user.email,
     };
-    if(isInvalidText(meal.title) ||
-    isInvalidText(meal.summary) ||
-    isInvalidText(meal.instructions) ||
-    !meal.image || meal.image.size === 0){
-        return {
-            message: 'Invalid input.',
-        }
+    const validatedFields = MealSchema.safeParse({title:meal.title,summary:meal.summary,instructions:meal.instructions, image:meal.image})
+      if (!validatedFields.success) {
+    return {
+      errors: validatedFields.error.flatten().fieldErrors,
+      values: {title:meal.title,summary:meal.summary,instructions:meal.instructions, image:meal.image}
     }
+  }
     await saveMeal(meal);
     revalidatePath('/meals')
     redirect('/meals')

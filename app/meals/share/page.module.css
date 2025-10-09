@@ -96,3 +96,10 @@
   color: #979797;
   cursor: not-allowed;
 }
+
+.error, 
+.error li{
+      font-size: 1rem;
+  font-weight: 300;
+  color: red;
+}
