@@ -1,20 +1,15 @@
 import Link from 'next/link';
 import classes from './page.module.css'
 import ImageSlideshow from '@/components/images/image-slideshow';
-import { createSupabaseServerClient } from '@/lib/supabaseServer';
 import { redirect } from 'next/navigation';
-
+import { createClient } from '@/utils/supabase/server'
 
 
 export default async function Home() {
-  const supabase = await createSupabaseServerClient();
-
-     const {
-    data: { session },
-  } = await supabase.auth.getSession();
-
-  if (!session) {
-    redirect('/auth');
+  const supabase = await createClient()
+  const { data, error } = await supabase.auth.getUser()
+  if (error || !data?.user) {
+    redirect('/auth')
   }
 
   return (

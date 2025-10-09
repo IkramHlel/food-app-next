@@ -23,10 +23,9 @@
 
 .nav button{
   text-decoration: none;
-    font-size: 1.25rem;
+  font-size: 1.25rem;
   color: #ddd6cb;
   font-weight: bold;
-  padding: 0.5rem 1rem;
   border-radius: 0.5rem;
   background: none;   /* pour ressembler à un lien */
   border: none;

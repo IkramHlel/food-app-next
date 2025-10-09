@@ -3,7 +3,7 @@
 import { redirect } from "next/navigation";
 import { saveMeal } from "@/lib/meals"
 import { revalidatePath } from 'next/cache';
-import { createSupabaseServerClient } from '@/lib/supabaseServer'
+import { createClient } from '@/utils/supabase/server'
 
 
 
@@ -12,15 +12,11 @@ function isInvalidText(text){
 }
 
 export async function shareMeal(prevState, formData) {
-      const supabase = await createSupabaseServerClient();
-        const {
-    data: { session },
-    error: sessionError
-  } = await supabase.auth.getSession();
+  const supabase = await createClient()
+  const { data, error } = await supabase.auth.getUser()
 
-  if (!session || sessionError) throw new Error('User not logged in');
-
-  const user = session.user;
+    if (error || !data?.user) throw new Error('User not logged in');
+    const user = data?.user
 
     const meal = {
         title: formData.get('title'),

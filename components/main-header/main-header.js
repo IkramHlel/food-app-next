@@ -5,11 +5,9 @@ import classes from './main-header.module.css';
 import Image from 'next/image';
 import MainHeaderBackground from './main-header-background';
 import NavLink from './nav-link';
-import { useRouter } from 'next/navigation';
 
 
 export default function MainHeader () {
-  const router = useRouter();
 
   const handleLogout = async (e) => {
   e.preventDefault();
@@ -24,7 +22,6 @@ export default function MainHeader () {
     alert('Impossible de se déconnecter.');
   }
 };
-
 
     return (
         <>
@@ -46,7 +43,7 @@ export default function MainHeader () {
                  <li>
                     <NavLink href="/community" >Foodies Community</NavLink>
                 </li>
-                <li>
+                  <li>
                         <button className={classes.link} onClick={handleLogout}>
                 Logout
               </button>

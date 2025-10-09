@@ -1,8 +1,8 @@
 import { NextResponse } from 'next/server';
-import { createSupabaseServerClient } from '@/lib/supabaseServer';
+import { createClient } from '@/utils/supabase/server'
 
 export async function POST(req) {
-  const supabase = await createSupabaseServerClient();
+    const supabase = await createClient()
 
   const { error } = await supabase.auth.signOut();
 

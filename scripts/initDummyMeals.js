@@ -1,5 +1,5 @@
 import slugify from 'slugify';
-import { supabase } from '../lib/supabase.js';
+import { createClient } from '@/utils/supabase/server'
 
 const dummyMeals = [
   {
@@ -134,6 +134,8 @@ const dummyMeals = [
 ];
 
 async function initData() {
+    const supabase = await createClient()
+
   for (const meal of dummyMeals) {
     const slug = slugify(meal.title, { lower: true });
 
