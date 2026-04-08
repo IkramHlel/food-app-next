@@ -153,6 +153,12 @@ npm run build
 - UX flow design
 - Clean code
 - Full-stack JavaScript
+- 
+## Development Approach
+
+This project was built using AI-assisted coding tools as a productivity aid.
+All system design decisions, feature implementation choices, debugging, and test strategy were defined, reviewed, and validated independently.
+AI was used to accelerate iteration, not to replace engineering reasoning.
 
 ## Notes
 
