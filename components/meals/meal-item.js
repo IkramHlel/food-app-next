@@ -11,7 +11,7 @@ export default function MealItem({ meal, currentUserEmail }) {
     <article className={classes.meal}>
       <header>
         <div className={classes.image}>
-          <Image src={`https://food-app-next.s3.eu-west-3.amazonaws.com/${image}`} alt={title} fill
+          <Image src={`https://rvvsyblinqvbgoshqhdi.supabase.co/storage/v1/object/public/meals/${image}`} alt={title} fill
             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" />
         </div>
         <div className={classes.headerText}>

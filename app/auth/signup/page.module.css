@@ -76,6 +76,25 @@
   cursor: not-allowed;
 }
 
+.login {
+  margin-top: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #b3aea5;
+}
+
+.link {
+  color: #ff9b05;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.link:hover,
+.link:focus {
+  color: #f9572a;
+}
+
 .error, 
 .error li{
       font-size: 1rem;

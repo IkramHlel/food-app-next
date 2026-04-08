@@ -1,17 +1,8 @@
 import Link from 'next/link';
 import classes from './page.module.css'
 import ImageSlideshow from '@/components/images/image-slideshow';
-import { redirect } from 'next/navigation';
-import { createClient } from '@/utils/supabase/server'
-
 
 export default async function Home() {
-  const supabase = await createClient()
-  const { data, error } = await supabase.auth.getUser()
-  if (error || !data?.user) {
-    redirect('/auth')
-  }
-
   return (
     <>
     <header className={classes.header}>

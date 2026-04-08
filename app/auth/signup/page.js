@@ -1,4 +1,5 @@
 'use client'
+import Link from 'next/link'
 import { signupUser } from '@/app/actions/auth'
 import classes from './page.module.css'
 import { useActionState } from 'react'
@@ -41,9 +42,15 @@ export default function SignupForm() {
           </ul>
         </div>
       )}
+      {state?.errors?.auth && <p className={classes.error}>{state.errors.auth}</p>}
+      {state?.success && <p style={{color:'green', marginBottom:'8px'}}>{state.success}</p>}
       <p className={classes.actions}>
            <button  disabled={pending} type="submit"> {pending ? 'Signing Up...' : 'Sign Up'}</button>
       </p>
+      <div className={classes.login}>
+        <p>Already have an account?</p>
+        <Link className={classes.link} href="/auth/login">Login</Link>
+      </div>
       
     </form>
     </main>

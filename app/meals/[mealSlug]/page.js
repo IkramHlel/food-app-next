@@ -28,7 +28,7 @@ export default async function SelectedMealPage({params}) {
         <>
             <header className={classes.header}>
                 <div className={classes.image}>
-                    <Image src={`https://food-app-next.s3.eu-west-3.amazonaws.com/${meal.image}`} alt={meal.title} fill/>
+                    <Image src={`https://rvvsyblinqvbgoshqhdi.supabase.co/storage/v1/object/public/meals/${meal.image}`} alt={meal.title} fill/>
                 </div>
                 <div className={classes.headerText}>
                     <h1>{meal.title}</h1>

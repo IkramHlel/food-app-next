@@ -1,7 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
-    images: {
+  images: {
     remotePatterns: [
       {
         protocol: 'https',
@@ -9,9 +9,14 @@ const nextConfig = {
         port: '',
         pathname: '/**',
       },
+      {
+        protocol: 'https',
+        hostname: 'rvvsyblinqvbgoshqhdi.supabase.co',
+        port: '',
+        pathname: '/storage/v1/object/public/**',
+      },
     ],
   },
 }
 
 export default nextConfig
-// module.exports = nextConfig

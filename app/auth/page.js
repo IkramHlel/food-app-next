@@ -1,5 +1,6 @@
 'use client'
 import Image from 'next/image'
+import logoImage from '@/assets/logo.png'
 import classes from './page.module.css'
 import { useRouter } from 'next/navigation';
 import MainHeaderBackground from '@/components/main-header/main-header-background';
@@ -12,7 +13,7 @@ export default function LandingPage() {
         <MainHeaderBackground/>
         <header className={classes.header}>
             <div className={classes.image}>
-                <Image src={`https://food-app-next.s3.eu-west-3.amazonaws.com/logo.png`} alt="Food App Logo"  priority   width={350} height={350} />
+                <Image src={logoImage} alt="Food App Logo" priority width={350} height={350} />
             </div>
         </header>
         <main className={classes.main}>
