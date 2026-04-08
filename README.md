@@ -1,6 +1,6 @@
 # Food App Next
 
-A full-stack Next.js practice project focused on authentication, route protection, meal sharing, and production-ready flow design.
+A full-stack Next.js project focused on authentication, route protection, meal sharing, and production-ready flow design.
 
 This project is built to demonstrate:
 - clean architecture choices
@@ -44,6 +44,15 @@ It emphasizes clean architecture, practical security considerations, and maintai
 - Image upload/storage
   - migrated from S3 links to Supabase Storage public bucket
 
+## Key Technical Decisions
+
+- Authentication handled via Supabase with server-side session validation
+- Route protection implemented using Next.js middleware instead of client-side guards
+- Business logic extracted into testable utility functions (auth-routing)
+- Server Actions used for secure auth flows instead of client-heavy logic
+- Validation isolated with Zod schemas for consistency and reusability
+- Storage strategy migrated from external URLs to Supabase Storage for better control
+
 ## User Experience Flow (Verified)
 
 ### Visitor flow
@@ -66,19 +75,16 @@ It emphasizes clean architecture, practical security considerations, and maintai
 
 ## Tests
 
-Two test modules are included:
+Unit tests are implemented using Vitest to validate core business logic:
 
-- utils/validation/auth.test.js
-  - login schema validation
-  - signup schema validation
-- utils/auth-routing.test.js
-  - route normalization
-  - protected route detection
-  - redirect decision logic
+- Authentication validation (Zod schemas)
+- Route protection and redirect logic
 
 Current status:
-- 2 test files
-- 8 tests passed
+- 2 test suites
+- 8 tests passing
+
+The testing approach focuses on isolating critical logic to ensure reliability and maintainability.
 
 ## Quality Checks
 
@@ -131,7 +137,7 @@ npm run test:run
 
 npm run build
 
-## Recruiter Keywords (Mots-clés utilisés)
+## Technical Highlights (Mots-clés utilisés)
 
 - Next.js App Router
 - Server Actions
