@@ -17,6 +17,7 @@ describe('auth routing helpers', () => {
     expect(isProtectedPath('/meals')).toBe(true)
     expect(isProtectedPath('/meals/share')).toBe(true)
     expect(isProtectedPath('/community')).toBe(true)
+    expect(isProtectedPath('/my-meals')).toBe(true)
     expect(isProtectedPath('/auth')).toBe(false)
   })
 

@@ -1,11 +1,15 @@
 import MealItem from './meal-item'
 import classes from './meals-grid.module.css'
 
-export default function MealsGrid({meals, currentUserEmail}) {
+export default function MealsGrid({ meals, currentUserEmail, showOwnerActions = false }) {
     return(
         <ul className={classes.meals}>
             {meals.map(meal => <li key={meal.id}>
-                <MealItem meal={meal} currentUserEmail={currentUserEmail}/>
+                <MealItem
+                  meal={meal}
+                  currentUserEmail={currentUserEmail}
+                  showOwnerActions={showOwnerActions}
+                />
             </li>)}
         </ul>
     )

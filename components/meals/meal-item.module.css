@@ -57,7 +57,8 @@
   text-align: right;
 }
 
-.actions a{
+.actions a,
+.actions button {
   display: inline-block;
   margin: 0.5rem;
   padding: 0.5rem 1rem;
@@ -66,10 +67,73 @@
   color: #ffffff;
   font-weight: bold;
   text-decoration: none;
+  border: 0;
+  cursor: pointer;
+  font: inherit;
 }
 
 .actions a:hover,
-.actions a:active {
+.actions a:active,
+.actions button:hover,
+.actions button:active {
   background: linear-gradient(90deg, #fd4715, #f9b241);
   box-shadow: 0 0 12px rgba(242, 100, 18, 0.8);
+}
+
+.modalBackdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.72);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+  z-index: 1000;
+}
+
+.modal {
+  width: min(100%, 28rem);
+  background: #1c2027;
+  border: 1px solid #454952;
+  border-radius: 1rem;
+  padding: 1.5rem;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.4);
+}
+
+.modal h3 {
+  margin: 0 0 0.75rem;
+  color: #ddd6cb;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.modal p {
+  color: #b3aea5;
+  margin-bottom: 1rem;
+}
+
+.modalActions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.75rem;
+}
+
+.cancelButton {
+  background: transparent !important;
+  border: 1px solid #6b7280 !important;
+  color: #ddd6cb !important;
+}
+
+.deleteButton {
+  background: linear-gradient(90deg, #c62828, #ef6c00) !important;
+}
+
+.deleteButton:hover,
+.deleteButton:active {
+  background: linear-gradient(90deg, #b71c1c, #e65100) !important;
+}
+
+.modalError {
+  color: #ff8a80;
+  margin-top: 0.5rem;
+  font-size: 0.95rem;
 }

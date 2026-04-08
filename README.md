@@ -1,6 +1,6 @@
 # Food App Next
 
-A full-stack Next.js project focused on authentication, route protection, meal sharing, and production-ready flow design.
+A full-stack Next.js practice project focused on authentication, route protection, meal sharing, and production-ready flow design.
 
 This project is built to demonstrate:
 - clean architecture choices
@@ -10,12 +10,11 @@ This project is built to demonstrate:
 
 ## Why This Project
 
-This project was built to explore modern full-stack patterns with Next.js, focusing on authentication, route protection, and scalable application design.
-It emphasizes clean architecture, practical security considerations, and maintainable, testable code.
+This project was built to explore modern full-stack patterns with Next.js, focusing on authentication, route protection, and scalable application design. It emphasizes clean architecture, practical security considerations, and maintainable, testable code.
 
 ## Tech Stack
 
-- Next.js 15 (App Router)
+- Next.js 16 (App Router)
 - React 19
 - Supabase
   - Auth (signup/login/session)
@@ -45,6 +44,7 @@ It emphasizes clean architecture, practical security considerations, and maintai
   - migrated from S3 links to Supabase Storage public bucket
 
 ## Key Technical Decisions
+
 
 - Authentication handled via Supabase with server-side session validation
 - Route protection implemented using Next.js middleware instead of client-side guards
@@ -81,10 +81,11 @@ Unit tests are implemented using Vitest to validate core business logic:
 - Route protection and redirect logic
 
 Current status:
-- 2 test suites
-- 8 tests passing
+  - 2 test suites
+  - 8 tests passing
 
 The testing approach focuses on isolating critical logic to ensure reliability and maintainability.
+
 
 ## Quality Checks
 
@@ -137,6 +138,16 @@ npm run test:run
 
 npm run build
 
+## Deployment
+
+The application is deployed on Vercel: https://food-app-next-six.vercel.app/
+
+The deployment includes:
+- Environment variable configuration
+- Supabase integration (Auth, Database, Storage)
+- Production-ready routing and middleware behavior
+
+
 ## Technical Highlights (Mots-clés utilisés)
 
 - Next.js App Router
@@ -153,12 +164,10 @@ npm run build
 - UX flow design
 - Clean code
 - Full-stack JavaScript
-- 
+
 ## Development Approach
 
-This project was built using AI-assisted coding tools as a productivity aid.
-All system design decisions, feature implementation choices, debugging, and test strategy were defined, reviewed, and validated independently.
-AI was used to accelerate iteration, not to replace engineering reasoning.
+This project was built using AI-assisted coding tools as a productivity aid. All system design decisions, feature implementation choices, debugging, and test strategy were defined, reviewed, and validated independently. AI was used to accelerate iteration, not to replace engineering reasoning.
 
 ## Notes
 

@@ -13,7 +13,7 @@ export default async function RootLayout({ children }) {
 
   return (
     <html lang="en">
-      <body>
+      <body suppressHydrationWarning>
         {user && <MainHeader />}
         {children}
       </body>

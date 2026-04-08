@@ -1,11 +1,12 @@
 import Link from 'next/link';
 import Image from 'next/image';
+import DeleteMealButton from './delete-meal-button';
 
 import classes from './meal-item.module.css';
 
-export default function MealItem({ meal, currentUserEmail }) {
+export default function MealItem({ meal, currentUserEmail, showOwnerActions = false }) {
   const { title, slug, image, summary, creator, creator_email } = meal;
-  const isOwner = currentUserEmail === creator_email;
+  const isOwner = showOwnerActions && currentUserEmail === creator_email;
 
   return (
     <article className={classes.meal}>
@@ -26,7 +27,7 @@ export default function MealItem({ meal, currentUserEmail }) {
             {isOwner && (
             <>
               <Link href={`/meals/${slug}/edit`}>Edit</Link>
-              <Link href={`/meals/${slug}/delete`}>Delete</Link>
+              <DeleteMealButton slug={slug} title={title} />
             </>
           )}
         </div>

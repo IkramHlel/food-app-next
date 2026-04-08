@@ -3,7 +3,7 @@ export function normalizePathname(pathname) {
 }
 
 export function isProtectedPath(pathname) {
-  return pathname === '/' || pathname.startsWith('/meals') || pathname.startsWith('/community')
+  return pathname === '/' || pathname.startsWith('/meals') || pathname.startsWith('/community') || pathname.startsWith('/my-meals')
 }
 
 export function shouldRedirectToAuth({ user, pathname }) {
