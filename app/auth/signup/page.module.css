@@ -76,7 +76,7 @@
   cursor: not-allowed;
 }
 
-.login {
+.switchAuth {
   margin-top: 1.5rem;
   display: flex;
   align-items: center;

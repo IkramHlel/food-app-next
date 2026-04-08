@@ -47,7 +47,7 @@ export default function SignupForm() {
       <p className={classes.actions}>
            <button  disabled={pending} type="submit"> {pending ? 'Signing Up...' : 'Sign Up'}</button>
       </p>
-      <div className={classes.login}>
+      <div className={classes.switchAuth}>
         <p>Already have an account?</p>
         <Link className={classes.link} href="/auth/login">Login</Link>
       </div>

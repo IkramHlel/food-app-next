@@ -34,7 +34,7 @@ export default function Login () {
             {pending ? 'Logging In...' : 'Login'}
            </button>
       </p>
-      <div className={classes.signup}>
+      <div className={classes.switchAuth}>
         <p>Don&apos;t have an account?</p>
         <Link className={classes.link} href={'/auth/signup'}>Sign up</Link>
       </div>
