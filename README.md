@@ -10,7 +10,8 @@ This project is built to demonstrate:
 
 ## Why This Project
 
-I built this app to practice modern Next.js full-stack patterns and showcase my code quality and decision-making to recruiters.
+This project was built to explore modern full-stack patterns with Next.js, focusing on authentication, route protection, and scalable application design.
+It emphasizes clean architecture, practical security considerations, and maintainable, testable code.
 
 ## Tech Stack
 
