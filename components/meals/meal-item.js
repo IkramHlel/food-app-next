@@ -12,8 +12,12 @@ export default function MealItem({ meal, currentUserEmail, showOwnerActions = fa
     <article className={classes.meal}>
       <header>
         <div className={classes.image}>
-          <Image src={`https://rvvsyblinqvbgoshqhdi.supabase.co/storage/v1/object/public/meals/${image}`} alt={title} fill
-            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" />
+          <Image
+            src={`https://rvvsyblinqvbgoshqhdi.supabase.co/storage/v1/object/public/meals/${image}`}
+            alt={title}
+            fill
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+          />
         </div>
         <div className={classes.headerText}>
           <h2>{title}</h2>

@@ -28,7 +28,12 @@ export default async function SelectedMealPage({params}) {
         <>
             <header className={classes.header}>
                 <div className={classes.image}>
-                    <Image src={`https://rvvsyblinqvbgoshqhdi.supabase.co/storage/v1/object/public/meals/${meal.image}`} alt={meal.title} fill/>
+                    <Image
+                        src={`https://rvvsyblinqvbgoshqhdi.supabase.co/storage/v1/object/public/meals/${meal.image}`}
+                        alt={meal.title}
+                        fill
+                        sizes="(max-width: 768px) 100vw, 720px"
+                    />
                 </div>
                 <div className={classes.headerText}>
                     <h1>{meal.title}</h1>

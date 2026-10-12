@@ -1,14 +1,23 @@
 'use client'
 
-import ImagePicker from '@/components/meals/image-picker';
-import classes from './page.module.css';
-import { shareMeal } from '@/app/actions/meals';
-import MealsFormSubmit from '@/components/meals/meals-form-submit';
+import { useEffect } from 'react'
+import { useRouter } from 'next/navigation'
+import ImagePicker from '@/components/meals/image-picker'
+import classes from './page.module.css'
+import { shareMeal } from '@/app/actions/meals'
+import MealsFormSubmit from '@/components/meals/meals-form-submit'
 import { useActionState } from 'react'
 
-
 export default function ShareMealPage() {
-    const [state, formAction] = useActionState(shareMeal, {message:null})
+  const router = useRouter()
+  const [state, formAction] = useActionState(shareMeal, { success: false })
+
+  useEffect(() => {
+    if (state?.success) {
+      router.push('/meals')
+    }
+  }, [state?.success, router])
+
   return (
     <>
       <header className={classes.header}>
@@ -19,25 +28,14 @@ export default function ShareMealPage() {
       </header>
       <main className={classes.main}>
         <form className={classes.form} action={formAction}>
-          {/* <div className={classes.row}>
-            <p>
-              <label htmlFor="name">Your name</label>
-              <input type="text" id="name" name="name" required />
-            </p>
-            <p>
-              <label htmlFor="email">Your email</label>
-              <input type="email" id="email" name="email" required />
-            </p>
-          </div> */}
           <div>
             <label htmlFor="title">Title</label>
-            <input type="text" id="title" name="title" defaultValue={state?.values?.title || ''}/>
+            <input type="text" id="title" name="title" defaultValue={state?.values?.title || ''} />
             {state?.errors?.title && <p className={classes.error}>{state.errors.title}</p>}
-
           </div>
           <div>
             <label htmlFor="summary">Short Summary</label>
-            <input type="text" id="summary" name="summary" defaultValue={state?.values?.summary || ''}/>
+            <input type="text" id="summary" name="summary" defaultValue={state?.values?.summary || ''} />
             {state?.errors?.summary && <p className={classes.error}>{state.errors.summary}</p>}
           </div>
           <div>
@@ -50,13 +48,13 @@ export default function ShareMealPage() {
             ></textarea>
             {state?.errors?.instructions && <p className={classes.error}>{state.errors.instructions}</p>}
           </div>
-          <ImagePicker label="Your image" name="image"/>
+          <ImagePicker label="Your image" name="image" />
           {state?.errors?.image && <p className={classes.error}>{state.errors.image}</p>}
           <p className={classes.actions}>
-            <MealsFormSubmit/>
+            <MealsFormSubmit />
           </p>
         </form>
       </main>
     </>
-  );
+  )
 }
