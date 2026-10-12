@@ -75,8 +75,9 @@ This project was built to explore modern full-stack patterns with Next.js, focus
 
 ## Tests
 
-Unit tests are implemented using Vitest to validate core business logic:
+The project includes both unit tests and browser-flow validation:
 
+### Unit tests (Vitest)
 - Authentication validation (Zod schemas)
 - Route protection and redirect logic
 
@@ -84,8 +85,13 @@ Current status:
   - 2 test suites
   - 8 tests passing
 
-The testing approach focuses on isolating critical logic to ensure reliability and maintainability.
+### End-to-end tests (Playwright)
+- Signup flow
+- Login flow
+- Redirect behavior for protected routes
+- Meal creation and dashboard visibility
 
+These tests simulate real browser interactions and verify the main user journeys from login/signup through recipe creation.
 
 ## Quality Checks
 
@@ -173,3 +179,5 @@ This project was built using AI-assisted coding tools as a productivity aid. All
 
 - This project intentionally focuses on real-world auth and routing logic rather than only UI.
 - The architecture was adjusted to keep logic testable (routing decisions extracted into helper functions).
+- Playwright-generated artifacts such as `test-results/` or `playwright-report/` are temporary execution outputs and should not be committed to the repository.
+- CI is configured to validate lint, tests, and production build before merge.
