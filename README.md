@@ -81,10 +81,6 @@ The project includes both unit tests and browser-flow validation:
 - Authentication validation (Zod schemas)
 - Route protection and redirect logic
 
-Current status:
-  - 2 test suites
-  - 8 tests passing
-
 ### End-to-end tests (Playwright)
 - Signup flow
 - Login flow
@@ -179,5 +175,4 @@ This project was built using AI-assisted coding tools as a productivity aid. All
 
 - This project intentionally focuses on real-world auth and routing logic rather than only UI.
 - The architecture was adjusted to keep logic testable (routing decisions extracted into helper functions).
-- Playwright-generated artifacts such as `test-results/` or `playwright-report/` are temporary execution outputs and should not be committed to the repository.
 - CI is configured to validate lint, tests, and production build before merge.

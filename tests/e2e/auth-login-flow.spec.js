@@ -15,11 +15,12 @@ test('guest is redirected to auth and a registered user can log in', async ({ pa
 
   await expect(page).toHaveURL(/\/$/)
 
+  await page.request.post('/api/logout')
   await page.goto('/auth/login')
   await page.getByLabel('Email').fill(email)
   await page.getByLabel('Password').fill(password)
   await page.getByRole('button', { name: 'Login' }).click()
 
   await expect(page).toHaveURL(/\/$/)
-  await expect(page.getByRole('heading', { name: /Freshly Food/i })).toBeVisible()
+  await expect(page.getByRole('heading', { name: 'NextLevel Food fir NextLevel Foodies' })).toBeVisible()
 })
